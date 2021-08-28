@@ -24,7 +24,6 @@ services:
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
 
-
   jhipster-registry:
     image: jhipster/jhipster-registry:v6.8.0
     volumes:
