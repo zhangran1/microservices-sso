@@ -61,9 +61,9 @@ import java.util.stream.Stream;
 /**
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  */
-public class GroupLDAPStorageMapper extends AbstractLDAPStorageMapper implements CommonLDAPGroupMapper {
+public class CustomGroupLDAPStorageMapper extends AbstractLDAPStorageMapper implements CommonLDAPGroupMapper {
 
-    private static final Logger logger = Logger.getLogger(GroupLDAPStorageMapper.class);
+    private static final Logger logger = Logger.getLogger(CustomGroupLDAPStorageMapper.class);
 
     private final GroupMapperConfig config;
     private final GroupLDAPStorageMapperFactory factory;
@@ -71,7 +71,7 @@ public class GroupLDAPStorageMapper extends AbstractLDAPStorageMapper implements
     // Flag to avoid syncing multiple times per transaction
     private boolean syncFromLDAPPerformedInThisTransaction = false;
 
-    public GroupLDAPStorageMapper(ComponentModel mapperModel, LDAPStorageProvider ldapProvider, GroupLDAPStorageMapperFactory factory) {
+    public CustomGroupLDAPStorageMapper(ComponentModel mapperModel, LDAPStorageProvider ldapProvider, GroupLDAPStorageMapperFactory factory) {
         super(mapperModel, ldapProvider);
         this.config = new GroupMapperConfig(mapperModel);
         this.factory = factory;

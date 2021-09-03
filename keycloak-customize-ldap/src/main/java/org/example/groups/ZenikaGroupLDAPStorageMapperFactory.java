@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.keycloak.storage.ldap.mappers.membership.group;
+package org.example.groups;
 
 import org.keycloak.common.util.ObjectUtil;
 import org.keycloak.component.ComponentModel;
@@ -37,6 +37,7 @@ import org.keycloak.storage.ldap.mappers.membership.CommonLDAPGroupMapperConfig;
 import org.keycloak.storage.ldap.mappers.membership.LDAPGroupMapperMode;
 import org.keycloak.storage.ldap.mappers.membership.MembershipType;
 import org.keycloak.storage.ldap.mappers.membership.UserRolesRetrieveStrategy;
+import org.keycloak.storage.ldap.mappers.membership.group.GroupMapperConfig;
 import org.keycloak.storage.ldap.mappers.membership.role.RoleMapperConfig;
 
 import java.util.HashMap;
@@ -45,12 +46,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
- */
-public class GroupLDAPStorageMapperFactory extends AbstractLDAPStorageMapperFactory {
 
-    public static final String PROVIDER_ID = "group-ldap-mapper";
+public class ZenikaGroupLDAPStorageMapperFactory extends AbstractLDAPStorageMapperFactory {
+
+    public static final String PROVIDER_ID = "zenika-group-ldap-mapper";
 
     protected static final List<ProviderConfigProperty> configProperties;
     protected static final Map<String, UserRolesRetrieveStrategy> userGroupsStrategies = new LinkedHashMap<>();
@@ -311,7 +310,7 @@ public class GroupLDAPStorageMapperFactory extends AbstractLDAPStorageMapperFact
 
     @Override
     protected AbstractLDAPStorageMapper createMapper(ComponentModel mapperModel, LDAPStorageProvider federationProvider) {
-        return new CustomGroupLDAPStorageMapper(mapperModel, federationProvider, this);
+        return new ZenikaGroupLDAPStorageMapper(mapperModel, federationProvider, this);
     }
 
     protected UserRolesRetrieveStrategy getUserGroupsRetrieveStrategy(String strategyKey) {

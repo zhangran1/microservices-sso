@@ -513,7 +513,8 @@ public class LDAPStorageProvider implements UserStorageProvider,
         return importUserFromLDAP(session, realm, ldapUser);
     }
 
-    protected UserModel importUserFromLDAP(KeycloakSession session, RealmModel realm, LDAPObject ldapUser) {
+    public UserModel importUserFromLDAP(KeycloakSession session, RealmModel realm,
+        LDAPObject ldapUser) {
         String ldapUsername = LDAPUtils.getUsername(ldapUser, ldapIdentityStore.getConfig());
         LDAPUtils.checkUuid(ldapUser, ldapIdentityStore.getConfig());
 

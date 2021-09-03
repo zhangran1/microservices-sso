@@ -23,9 +23,7 @@ import org.keycloak.provider.Spi;
 import org.keycloak.storage.ldap.mappers.LDAPStorageMapper;
 import org.keycloak.storage.ldap.mappers.LDAPStorageMapperFactory;
 
-/**
- * @author <a href="mailto:me@tsudot.com">Kunal Kerkar</a>
- */
+
 public class CustomLDAPStorageMapperSpi implements Spi {
 
     @Override
