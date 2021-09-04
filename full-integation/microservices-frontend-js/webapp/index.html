@@ -159,8 +159,8 @@
 </div>
 
 <script>
-    // let keycloakUrl = 'http://sso.tdlabs.local:8899/u/auth'
-    let keycloakUrl = "http://localhost:8080/auth"
+    // let keycloakUrl = "http://localhost:8080/auth"
+    let keycloakUrl = "https://localhost:8443/auth"
     let keycloakJsSrc = keycloakUrl + "/js/keycloak.js";
 
     var script = document.createElement('script');
@@ -172,7 +172,7 @@
 
         window.keycloak = new Keycloak({
             url: keycloakUrl,
-            realm: 'user-application-role-mapping',
+            realm: 'x509',
             clientId: 'app-frontend-plainjs',
             scope: 'openid email phone'
         });
