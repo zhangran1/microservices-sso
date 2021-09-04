@@ -53,7 +53,7 @@ public class SecuredController {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Authorization", "Bearer " + session.getTokenString());
-        ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:8081/",
+        ResponseEntity<String> exchange = restTemplate.exchange("https://localhost:8081/",
             HttpMethod.POST,
             new HttpEntity<>(httpHeaders),
             String.class);
