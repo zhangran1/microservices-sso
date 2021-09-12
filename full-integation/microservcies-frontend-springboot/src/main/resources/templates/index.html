@@ -3,13 +3,9 @@
 
 <h1>Public Area</h1>
 
-<form th:action="@{/sso/logout}" method="POST">
-    <!-- CSRF token will be emitted by Spring Security -->
-    <input type="submit" value="Logout"/>
-</form>
 
 <h2>
-    Hello <span sec:authentication="name">Anonymous</span>
+    Hello <span sec:authentication="name"></span>
 </h2>
 
 <a href="secured">To Secured Area</a>
