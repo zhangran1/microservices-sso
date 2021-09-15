@@ -1,22 +1,14 @@
-# JHipster generated Docker-Compose configuration
+# Keycloak and Ldap docker compose
 
 ## Usage
+Launch all your infrastructure by running: `docker-compose -f all-in-one.yml up `.
 
-Launch all your infrastructure by running: `docker-compose up -d`.
 
-## Configured Docker services
+### Applications and dependencies
+- Keycloak https://localhost:8443
+- Ldap1: ldap://localhost:389
+- Ldap2: ldap://localhost:390
 
-### Service registry and configuration server:
 
-- [JHipster Registry](http://localhost:8761)
-
-### Applications and dependencies:
-
-- gateway (gateway application)
-- gateway's postgresql database
-- applicationone (microservice application)
-- applicationone's postgresql database
-
-### Additional Services:
-
-- [Keycloak server](http://localhost:9080)
+### Certs
+- 

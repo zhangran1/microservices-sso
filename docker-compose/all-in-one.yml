@@ -1,0 +1,68 @@
+version: '3.3'
+services:
+  keycloak:
+    image: jboss/keycloak:15.0.2
+    container_name: keycloak-final-demo
+    command: ["-c standalone.xml", "-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true", "-Dsun.security.krb5.debug=true", "-Dsun.security.spnego.debug=true", "-Dkeycloak.profile.feature.token_exchange=enabled", "-Dkeycloak.profile.feature.admin_fine_grained_authz=enabled"]
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - DB_VENDOR=h2
+      - X509_CA_BUNDLE=/etc/x509/https/rootCA.crt
+    volumes:
+      - ./localhost.crt:/etc/x509/https/tls.crt
+      - ./localhost.key:/etc/x509/https/tls.key
+      - ./rootCA.crt:/etc/x509/https/rootCA.crt
+      - ./custom-ldap-provider.jar:/opt/jboss/keycloak/standalone/deployments/custom-ldap-provider.jar
+    ports:
+      - 8080:8080
+      - 8443:8443
+
+  keycloakinternal:
+    image: jboss/keycloak:15.0.2
+    container_name: keycloak-internal
+    command: ["-c standalone.xml", "-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true", "-Dsun.security.krb5.debug=true", "-Dsun.security.spnego.debug=true", "-Dkeycloak.profile.feature.token_exchange=enabled", "-Dkeycloak.profile.feature.admin_fine_grained_authz=enabled", "-Djboss.socket.binding.port-offset=200"]
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - DB_VENDOR=h2
+    ports:
+      - 8280:8280
+
+
+
+  ldap1:
+    image: osixia/openldap:1.2.0
+    container_name: ldap1
+    command: --copy-service
+    environment:
+      LDAP_SSL_HELPER_PREFIX: "ldap"
+      LDAP_TLS_VERIFY_CLIENT: "never"
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./ldap1-ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+    ports:
+      - "389:389"
+      - "636:636"
+    domainname: "ldap.example.org" # important: same as hostname
+    hostname: "ldap.example.org"
+
+
+  ldap2:
+    image: osixia/openldap:1.2.0
+    container_name: ldap2
+    command: --copy-service
+    environment:
+      LDAP_SSL_HELPER_PREFIX: "ldap"
+      LDAP_TLS_VERIFY_CLIENT: "never"
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./ldap2-ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+    ports:
+      - "390:389"
+      - "637:636"
+    domainname: "ldap.example.org" # important: same as hostname
+    hostname: "ldap.example.org"
+

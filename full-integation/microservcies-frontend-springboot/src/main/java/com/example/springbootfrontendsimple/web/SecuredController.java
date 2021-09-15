@@ -48,7 +48,6 @@ public class SecuredController {
         KeycloakAuthenticationToken token = (KeycloakAuthenticationToken) request.getUserPrincipal();
         KeycloakPrincipal principal=(KeycloakPrincipal)token.getPrincipal();
         KeycloakSecurityContext session = principal.getKeycloakSecurityContext();
-//        AccessToken accessToken = session.getToken();
         log.info(session.getTokenString());
 
         HttpHeaders httpHeaders = new HttpHeaders();
