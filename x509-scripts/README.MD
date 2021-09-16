@@ -75,3 +75,7 @@ enterpass phrase for rootCA: zenika
 openssl pkcs12 -export -out zhangran1.p12 -name "zhangran1" -inkey zhangran1.key -in zhangran1.crt
 export password:zhangran1-zenika
 ```
+
+
+#### References
+1. Create X.509 certificates https://gist.github.com/dasniko/b1aa115fd9078372b03c7a9f7e9ec189

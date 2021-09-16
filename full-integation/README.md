@@ -1,12 +1,12 @@
 #### Keycloak settings
 
 ```xml
-keycloak.auth-server-url=http://localhost:8080/auth
-keycloak.realm=user-application-role-mapping
+keycloak.auth-server-url=https://localhost:8443/auth
+keycloak.realm=x509
 ```
 
 
-#### OIDC single signon
+#### OIDC Single Sign On
 - microservcies-frontend-springboot
 - microservices-frontend-js
 After user login from any of the above app, user is able to be automatically sign in another app.
@@ -17,5 +17,5 @@ After user login from any of the above app, user is able to be automatically sig
 - microservices-backend-springboot
 After user with Admin access right login microservices-frontend-springboot, oauth call will be made to microservices-backend-springboot
   ```
-  http://localhost:8019/secured/user
+  https://localhost:8019/secured/user
   ```
