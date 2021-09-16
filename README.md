@@ -1,16 +1,24 @@
-# microservices-sso
+# Keycloak Evaluation
 
-This repository contains experimentation code to validate Keycloak features.
+This repository contains experimentation code to validate Keycloak features. The idea of this project is to 
+evaluate the following keycloak features:
+1. OIDC
+2. Oauth
+3. Token Exchange
+4. Custom Service Provider Interfaces(SPI)
 
 ## Getting Started
 
 To Launch Keycloak, Keycloak-internal (can be used for token exchagne) Ldap1 and Ldap2 refer document in [docker-compose folder](docker-compose/README.md)
 
-To Launch Microservices applications refer document in [Full Integration](full-integation/README.md)
+To Launch Microservices applications refer document in [Full Integration](full-integation)
 
 To build custom Service Provider Interface [Keycloak Customize SPI](keycloak-customize-ldap)
 
 To generate X509-Scripts, refer [X-509 Scripts](x509-scripts/README.md)
+
+## Documentations
+You may refer design documentations from [Docs](docs)
 
 
 ## References
