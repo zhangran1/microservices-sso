@@ -18,7 +18,7 @@ To build custom Service Provider Interface [Keycloak Customize SPI](keycloak-cus
 To generate X509-Scripts, refer [X-509 Scripts](x509-scripts/README.md)
 
 ## Documentations
-You may refer design documentations from [Docs](docs)
+You may refer design documentations from [Docs](docs) 
 
 
 ## References
